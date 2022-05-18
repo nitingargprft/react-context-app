@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import translationContext from "../context/translation-context";
+import { TranslatedLabel as ts } from "./TranslatedLabel";
 function Home(props) {
-  const { message } = useContext(translationContext);
   return (
-    <div>
-      This is Home Component
-      <p style={{ color: "red" }}>{message}</p>
+    <div className="NGDemo">
+      {ts("This is Home Component")}
+      {/* <p style={{ color: "red" }}>{ts("Text Message", message)}</p> */}
     </div>
   );
 }
