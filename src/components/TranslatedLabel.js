@@ -2,7 +2,14 @@ import React, { useContext } from "react";
 import TranslationContext from "../context/translation-context";
 
 export function TranslatedLabel(key) {
-  const { message } = useContext(TranslationContext);
+  const { message, postApiResponse } = useContext(TranslationContext);
+  console.log("post api response", postApiResponse);
 
-  return <>{key + " Message: " + message}</>;
+  let title = message;
+  if (postApiResponse != null) {
+    postApiResponse.map((info) => {
+      title = info.title;
+    });
+  }
+  return <>{key + " Message: " + title} </>;
 }
